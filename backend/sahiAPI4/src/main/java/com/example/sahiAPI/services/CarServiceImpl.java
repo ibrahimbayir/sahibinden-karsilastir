@@ -117,14 +117,25 @@ public class CarServiceImpl implements ICarService{
         return carRepo.findById(id);
     }
 
-    @Override
+      @Override
     @Transactional
     public Car updateCar(Car car) {
         // Varsayım: car.id null değil ve var olan bir kayıt
         if (!carRepo.existsById(car.getId())) {
             throw new IllegalArgumentException("Car not found with ID: " + car.getId());
         }
-        return carRepo.save(car);
+        Car carModel = getCarById(car.getId()).get();
+        carModel.setDescription(car.getDescription());
+        carModel.setModel(car.getModel());
+        carModel.setAvgConsumption(car.getAvgConsumption());
+        carModel.setFuel(car.getFuel());
+        carModel.setKm(car.getKm());
+        carModel.setBrand(car.getBrand());
+        carModel.setContact(car.getContact());
+        carModel.setPrice(car.getPrice());
+        carModel.setYear(car.getYear());
+
+        return carRepo.save(carModel);
     }
 
     @Override
