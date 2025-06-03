@@ -166,34 +166,8 @@ public class CarServiceImpl implements ICarService{
     @Override
     @Transactional
     public List<Car> getAllForMainPage() {
-        List<Car> result = new ArrayList<>();
-        int currentYear = Year.now().getValue(); // örn: 2025
-        int max = 12;
+      
 
-        // last 7 years
-        for (int year = currentYear; year >= currentYear - 6; year--) {
-            List<Car> cars = carRepo.findByYearLessThanEqual(year);
-            for (Car car : cars) {
-                if (result.size() < max) {
-                    result.add(car);
-                } else {
-                    return result;
-                }
-            }
-        }
-
-        // if result lass than 12 then add order by year
-        if (result.size() < max) {
-            List<Car> olderCars = carRepo.findByYearLessThan(currentYear - 6);
-            for (Car car : olderCars) {
-                if (result.size() < max) {
-                    result.add(car);
-                } else {
-                    break;
-                }
-            }
-        }
-
-        return result;
+        return carRepo.findAll();
     }
 }
