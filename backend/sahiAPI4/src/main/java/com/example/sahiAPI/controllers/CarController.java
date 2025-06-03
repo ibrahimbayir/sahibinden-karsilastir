@@ -21,6 +21,11 @@ public class CarController {
     @Autowired
     private ICarService carService;
 
+    @GetMapping("/ping")
+public ResponseEntity<String> ping() {
+    return ResponseEntity.ok("pong");
+}
+
     // Filter by brand
     @CrossOrigin
     @GetMapping("/filter/brand/{brand}")
