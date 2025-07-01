@@ -25,20 +25,62 @@ The backend is responsible for:
 
 ## 📂 Project Structure
 
+```
+src/
+├── controller/
+├── service/
+├── model/
+├── repository/
+├── config/
+└── dto/
+```
 
-| Method | Endpoint           | Description           |
-| ------ | ------------------ | --------------------- |
-| POST   | /api/auth/register | Register new user     |
-| POST   | /api/auth/login    | Authenticate user     |
-| GET    | /api/cars          | List all cars         |
-| POST   | /api/cars          | Create a new listing  |
-| PUT    | /api/cars/{id}     | Update a listing      |
-| DELETE | /api/cars/{id}     | Delete a listing      |
-| GET    | /api/cars/compare  | Compare multiple cars |
+## 🛠️ Setup & Installation
 
-## Authors
-İbrahim Bayır
+1. **Clone the repo**
+```bash
+git clone https://github.com/<username>/sahibindenkarsilastir-backend.git
+cd sahibindenkarsilastir-backend
+```
 
-Mehmet Çavdar
+2. **Create a MySQL database**
+```sql
+CREATE DATABASE sahibindenkarsilastir;
+```
 
-Muhammet İyidil
+3. **Configure application.properties**
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/sahibindenkarsilastir
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+spring.jpa.hibernate.ddl-auto=update
+```
+
+4. **Run the application**
+```bash
+./mvnw spring-boot:run
+```
+
+## 📮 API Endpoints
+
+| Method | Endpoint                | Description                 |
+|--------|-------------------------|-----------------------------|
+| POST   | /api/auth/register      | Register new user           |
+| POST   | /api/auth/login         | Authenticate user           |
+| GET    | /api/cars               | List all cars               |
+| POST   | /api/cars               | Create a new listing        |
+| PUT    | /api/cars/{id}          | Update a listing            |
+| DELETE | /api/cars/{id}          | Delete a listing            |
+| GET    | /api/cars/compare       | Compare multiple cars       |
+
+## 🧪 Testing
+
+- You can use **Postman** or **Swagger UI** (if enabled) to test the REST endpoints.
+
+---
+
+## 👥 Authors
+
+- İbrahim Bayır  
+- Mehmet Çavdar  
+- Muhammet İyidil
